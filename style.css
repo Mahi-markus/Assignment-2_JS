@@ -1098,6 +1098,10 @@ background-color: #007bff; /* Underline color */
 }
 
 
+.traveler-controls{
+    margin-top: 10px;
+}
+
 
 .traveler-input {
     display: flex;

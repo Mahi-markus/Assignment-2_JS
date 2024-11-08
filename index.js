@@ -406,21 +406,29 @@ function handleShareButtonClick() {
 
     const adultCountEl = document.querySelector('.traveler-count[data-type="adults"]');
     const childrenCountEl = document.querySelector('.traveler-count[data-type="children"]');
-    const totalTravelersEl = document.getElementById('total-travelers'); // Display total travelers
+    const totalTravelersEl = document.getElementById('total-travelers');
     const adultDecrementBtn = document.querySelector('.traveler-btn[data-type="adults"][data-action="decrement"]');
     const adultIncrementBtn = document.querySelector('.traveler-btn[data-type="adults"][data-action="increment"]');
     const childrenDecrementBtn = document.querySelector('.traveler-btn[data-type="children"][data-action="decrement"]');
     const childrenIncrementBtn = document.querySelector('.traveler-btn[data-type="children"][data-action="increment"]');
     const bookButton = document.querySelector('.book-button');
-    const travelerDetails = document.getElementById('traveler-details'); // Wrapper for traveler controls
+    const travelerDetails = document.getElementById('traveler-details');
+    const travelerInputField = document.getElementById('traveler-input');
     
     let adultCount = 0;
     let childrenCount = 0;
     
+    // Function to update the total travelers count
     function updateTotalTravelers() {
         const totalTravelers = adultCount + childrenCount;
         totalTravelersEl.value = `${totalTravelers} traveler${totalTravelers > 1 ? 's' : ''}`;
     }
+    
+    // Show traveler input and traveler details on clicking the traveler input field
+    travelerInputField.addEventListener('click', () => {
+        totalTravelersEl.style.display = 'block'; // Show the total travelers input field
+        travelerDetails.style.display = 'block'; // Show the traveler details
+    });
     
     // Event listeners for adults
     adultDecrementBtn.addEventListener('click', () => {
@@ -454,18 +462,14 @@ function handleShareButtonClick() {
     
     // Event listener for "Book Now" button
     bookButton.addEventListener('click', () => {
-        // Hide the traveler details and show total travelers
-        travelerDetails.style.display = 'none';
-        totalTravelersEl.hidden = false;
+        travelerDetails.style.display = 'none'; // Hide traveler details
+        totalTravelersEl.style.display = 'block'; // Keep the total travelers input visible
         updateTotalTravelers();
     });
     
     // Initial display of travelers count
     updateTotalTravelers();
-
-
-
-
+    
 
     //gallery
     const images = [
