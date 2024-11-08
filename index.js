@@ -414,7 +414,7 @@ function handleShareButtonClick() {
     const bookButton = document.querySelector('.book-button');
     const travelerDetails = document.getElementById('traveler-details'); // Wrapper for traveler controls
     
-    let adultCount = 2;
+    let adultCount = 0;
     let childrenCount = 0;
     
     function updateTotalTravelers() {
